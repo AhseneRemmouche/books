@@ -1,0 +1,4 @@
+.addNewBook{
+    display: flex;
+    flex-direction: column;
+}

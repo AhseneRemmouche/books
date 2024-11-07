@@ -1,6 +1,7 @@
 import React from "react";
+import './Book.css'
 
-// eslint-disable-next-line react/prop-types
+
 function Books({ title }) {
 	return (
 		<div>
