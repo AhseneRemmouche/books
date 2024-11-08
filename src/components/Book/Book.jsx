@@ -1,12 +1,12 @@
+/* eslint-disable react/prop-types */
 import React from "react";
-import './Book.css'
+import "./Book.css";
 
-
-function Books({ title }) {
+function Books({ title, price }) {
 	return (
 		<div>
 			<h2>{title}</h2>
-			<p>$11</p>
+			<p>{price}</p>
 		</div>
 	);
 }
