@@ -2,11 +2,20 @@
 import React from "react";
 import "./Book.css";
 
-function Books({ title, price }) {
+function Books({ id, title, price }) {
 	return (
 		<div>
 			<h2>{title}</h2>
 			<p>{price}</p>
+
+			<button
+				onClick={() => {
+					console.log({ read: true });
+				}}
+			>
+				Done
+			</button>
+			<button>Delete</button>
 		</div>
 	);
 }

@@ -8,16 +8,19 @@ const initialBookList = [
 		id: uuidv4(),
 		title: "JavaScript Info 1",
 		price: 11,
+		read: false,
 	},
 	{
 		id: uuidv4(),
 		title: "JavaScript Info 2",
 		price: 9,
+		read: false,
 	},
 	{
 		id: uuidv4(),
 		title: "JavaScript Info 3",
 		price: 7,
+		read: false,
 	},
 ];
 
@@ -32,8 +35,10 @@ const Home = () => {
 	function handleNewBookClick() {
 		if (bookTitle != "") {
 			const newBook = {
+				id: uuidv4(),
 				title: bookTitle,
 				price: bookPrice,
+				read: false,
 			};
 			setBooks([...books, newBook]);
 			setBookTitle("");
@@ -43,8 +48,19 @@ const Home = () => {
 		}
 	}
 
+	// function handleRead(){
+
+	// }
 	const booksList = books.map((book) => {
-		return <Book key={book.id} title={book.title} price={book.price} />;
+		return (
+			<Book
+				key={book.id}
+				id={book.id}
+				title={book.title}
+				price={book.price}
+				read={book.read}
+			/>
+		);
 	});
 	return (
 		<div>
