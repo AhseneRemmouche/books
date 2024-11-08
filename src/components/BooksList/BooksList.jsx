@@ -39,6 +39,7 @@ const Home = () => {
 				title: bookTitle,
 				price: bookPrice,
 				read: false,
+				handleDone: handleDone,
 			};
 			setBooks([...books, newBook]);
 			setBookTitle("");
@@ -48,9 +49,9 @@ const Home = () => {
 		}
 	}
 
-	// function handleRead(){
-
-	// }
+	function handleDone(id) {
+		console.log("this is is from parent", { id });
+	}
 	const booksList = books.map((book) => {
 		return (
 			<Book
@@ -59,6 +60,7 @@ const Home = () => {
 				title={book.title}
 				price={book.price}
 				read={book.read}
+				handleDone={handleDone}
 			/>
 		);
 	});
