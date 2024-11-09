@@ -2,7 +2,7 @@
 import React from "react";
 import "./Book.css";
 
-function Books({ id, title, price, handleDone }) {
+function Books({ id, title, price, handleIsCompleted }) {
 	return (
 		<div>
 			<h2>{title}</h2>
@@ -10,10 +10,10 @@ function Books({ id, title, price, handleDone }) {
 
 			<button
 				onClick={() => {
-					handleDone(id);
+					handleIsCompleted(id);
 				}}
 			>
-				Done
+				isCompleted
 			</button>
 			<button>Delete</button>
 		</div>

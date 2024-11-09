@@ -8,19 +8,19 @@ const initialBookList = [
 		id: uuidv4(),
 		title: "JavaScript Info 1",
 		price: 11,
-		read: false,
+		isCompleted: false,
 	},
 	{
 		id: uuidv4(),
 		title: "JavaScript Info 2",
 		price: 9,
-		read: false,
+		isCompleted: false,
 	},
 	{
 		id: uuidv4(),
 		title: "JavaScript Info 3",
 		price: 7,
-		read: false,
+		isCompleted: false,
 	},
 ];
 
@@ -38,8 +38,8 @@ const Home = () => {
 				id: uuidv4(),
 				title: bookTitle,
 				price: bookPrice,
-				read: false,
-				handleDone: handleDone,
+				isCompleted: false,
+				
 			};
 			setBooks([...books, newBook]);
 			setBookTitle("");
@@ -49,8 +49,16 @@ const Home = () => {
 		}
 	}
 
-	function handleDone(id) {
+	function handleIsCompleted(id) {
 		console.log("this is is from parent", { id });
+		const updateBooks = books.map(item => {
+			if(item.id == id){
+				item.isCompleted = !item.isCompleted
+			}
+			// return item
+		})
+	console.log(updateBooks)
+
 	}
 	const booksList = books.map((book) => {
 		return (
@@ -59,8 +67,8 @@ const Home = () => {
 				id={book.id}
 				title={book.title}
 				price={book.price}
-				read={book.read}
-				handleDone={handleDone}
+				isCompleted={book.isCompleted}
+				handleIsCompleted={handleIsCompleted}
 			/>
 		);
 	});
