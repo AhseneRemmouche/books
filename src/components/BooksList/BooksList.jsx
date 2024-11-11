@@ -8,7 +8,7 @@ const initialBookList = [
 		id: uuidv4(),
 		title: "JavaScript Info 1",
 		price: 11,
-		isCompleted: false,
+		isCompleted: true,
 	},
 	{
 		id: uuidv4(),
@@ -50,14 +50,20 @@ const Home = () => {
 	}
 
 	function handleIsCompleted(id) {
-		console.log("this is is from parent", { id });
+				
+		// const updateItem = books.find(item => item.id = id )
+		// if(updateItem){
+		// 	updateItem.isCompleted = !updateItem.isCompleted
+		// }
+		// 
 		const updateBooks = books.map(item => {
 			if(item.id == id){
 				item.isCompleted = !item.isCompleted
+				console.log(item.isCompleted)
 			}
-			// return item
+			return item
 		})
-	console.log(updateBooks)
+		setBooks ([...updateBooks])
 
 	}
 	const booksList = books.map((book) => {
