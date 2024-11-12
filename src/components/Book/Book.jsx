@@ -1,21 +1,34 @@
 /* eslint-disable react/prop-types */
-import React from "react";
+import React, { useContext } from "react";
 import "./Book.css";
+import BookContext from "../contexts/BookContext";
 
-function Books({ id, title, price, isCompleted, handleIsCompleted }) {
-	
+function Book({ id, title, price, isCompleted }) {
+	const { books, setBooks } = useContext(BookContext);
+
+	function handleIsCompleted() {
+		const updatedBooks = books.map((item) => {
+			if (item.id == id) {
+				item.isCompleted = !item.isCompleted;
+			}
+			return item;
+		});
+
+		setBooks([...updatedBooks]);
+	}
+
 	return (
 		<div>
 			<h2>{title}</h2>
 			<p>{price}</p>
-			
+
 			<button
 				type="button"
 				onClick={() => {
-					handleIsCompleted(id);
+					handleIsCompleted();
 				}}
 				style={{
-					backgroundColor: isCompleted ? "green" : "white"
+					backgroundColor: isCompleted ? "green" : "white",
 				}}
 			>
 				isCompleted
@@ -25,4 +38,4 @@ function Books({ id, title, price, isCompleted, handleIsCompleted }) {
 	);
 }
 
-export default Books;
+export default Book;
