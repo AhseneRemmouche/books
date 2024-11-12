@@ -1,0 +1,11 @@
+button {
+    margin: 5px;
+    border: solid 1px gray
+}
+
+.container{
+    border:solid 1px gray; 
+    border-radius:20px;
+    margin:15px;
+    padding:10px 10px;
+}
