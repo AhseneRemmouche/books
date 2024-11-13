@@ -17,18 +17,9 @@ function Book({ id, title, price, isCompleted }) {
 		setBooks([...updatedBooks]);
 	}
 
-	function handleDeleteClick(){
-		// console.log('delete item')
-		// const deleteBook = books.find(item =>{
-		// 	return item.id == id
-		// })
-		const bookIndex = books.findIndex(item=> item.id == id)
-		if(bookIndex != -1){
-			const booksCopy = [...books]
-			booksCopy.splice(bookIndex, 1)
-			setBooks([...booksCopy])
-		}
-		console.log(id, bookIndex)
+	function handleDeleteClick() {
+		const updatedBooks = books.filter((item) => item.id != id);
+		setBooks([...updatedBooks]);
 	}
 
 	return (
@@ -37,19 +28,20 @@ function Book({ id, title, price, isCompleted }) {
 			<p>${price}</p>
 
 			<button
-			className="btn"
+				className="btn"
 				type="button"
 				onClick={() => {
 					handleIsCompleted();
 				}}
 				style={{
 					backgroundColor: isCompleted ? "green" : "white",
-					
 				}}
 			>
 				isCompleted
 			</button>
-			<button className="btn" onClick={handleDeleteClick}>Delete</button>
+			<button className="btn" onClick={handleDeleteClick}>
+				Delete
+			</button>
 		</div>
 	);
 }
